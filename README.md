@@ -27,19 +27,19 @@ This repository contains model code and analysis/plotting utilities for a **smar
 
 ## Repository structure
 
-.
 ├── Analysis/
-│ ├── plot_audio_visualization.py
-│ ├── plot_confusion_matrices.py
-│ ├── plot_feature_heatmap.py
-│ ├── plot_ml_roc_curves.py
-│ ├── plot_pred_clinical_corr.py
-│ ├── plot_predicted_class.py
-│ ├── plot_shap_analysis.py
-│ └── plot_summary_metrics.py
+│   ├── plot_audio_visualization.py
+│   ├── plot_confusion_matrices.py
+│   ├── plot_feature_heatmap.py
+│   ├── plot_ml_roc_curves.py
+│   ├── plot_pred_clinical_corr.py
+│   ├── plot_predicted_class.py
+│   ├── plot_shap_analysis.py
+│   └── plot_summary_metrics.py
 └── Model/
-├── ml.py
-└── slstm.py
+    ├── ml.py
+    └── slstm.py
+
 
 ### `Model/`
 - **`slstm.py`**: sequence model for visual temporal dynamics (sLSTM) and/or the multimodal fusion network.
