@@ -27,6 +27,7 @@ This repository contains model code and analysis/plotting utilities for a **smar
 
 ## Repository structure
 
+```text
 .
 ├── Analysis/
 │   ├── plot_audio_visualization.py
@@ -40,7 +41,7 @@ This repository contains model code and analysis/plotting utilities for a **smar
 └── Model/
     ├── ml.py
     └── slstm.py
-
+```
 
 ### `Model/`
 - **`slstm.py`**: sequence model for visual temporal dynamics (sLSTM) and/or the multimodal fusion network.
