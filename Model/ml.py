@@ -105,7 +105,7 @@ class TriStreamModel(nn.Module):
         audio_lengths: torch.Tensor,
     ) -> torch.Tensor:
         if not torch.equal(hog_lengths, au_lengths):
-            raise ValueError("HOG 和 AU 序列长度必须一致")
+            raise ValueError("HOG and AU should have equal sequence length")
 
 
         visual_input = torch.cat([hog_sequence, au_sequence], dim=-1)
