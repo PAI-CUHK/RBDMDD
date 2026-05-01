@@ -29,31 +29,31 @@ This repository contains model code and analysis/plotting utilities for a **smar
 
 ```text
 ├── Analysis/
-    ├── plot_audio_visualization.py
-    ├── plot_confusion_matrices.py
-    ├── plot_feature_heatmap.py
-    ├── plot_ml_roc_curves.py
-    ├── plot_pred_clinical_corr.py
-    ├── plot_predicted_class.py
-    ├── plot_shap_analysis.py
-    └── plot_summary_metrics.py
+    ├── 1.1plot_feature_heatmap.py
+    ├── 1.2plot_shap_analysis.py
+    ├── 2.plot_summary_metrics.py
+    ├── 3.plot_pred_clinical_corr.py
+    ├── 4.plot_predicted_class.py
+    ├── SI_1.plot_audio_visualization.py
+    ├── SI_2.plot_ml_roc_curves.py
+    └── SI_3.plot_confusion_matrics.py
 └── Model/
-    ├── ml.py
+    ├── dl.py
     └── slstm.py
 ```
 
 ### `Model/`
-- **`slstm.py`**: sequence model for visual temporal dynamics (sLSTM) and/or the multimodal fusion network.
-- **`ml.py`**: classical ML baselines (e.g., SVM / Naive Bayes / tree ensembles) and/or training/evaluation utilities.
+- **`slstm.py`**: sLSTM sequence model used by dl.py.
+- **`dl.py`**: deep learning multimodal model implementation (TriStreamModel: visual sLSTM streams + audio MLP + fusion classifier).
 
 ### `Analysis/`
 Plotting and post-hoc analysis scripts used to generate paper-style figures:
-- **Confusion matrices**: `plot_confusion_matrices.py`
-- **ROC curves for baseline ML models**: `plot_ml_roc_curves.py`
-- **SHAP visualizations**: `plot_shap_analysis.py`, `plot_feature_heatmap.py`
-- **Patient-level prediction summaries**: `plot_summary_metrics.py`, `plot_predicted_class.py`
-- **Prediction–clinical scale correlations**: `plot_pred_clinical_corr.py`
-- **Audio visualization utilities**: `plot_audio_visualization.py`
+- **Confusion matrices**: `SI_3.plot_confusion_matrics.py`
+- **ROC curves for baseline ML models**: `SI_2.plot_ml_roc_curves.py`
+- **SHAP visualizations**: `1.2plot_shap_analysis.py`, `1.1plot_feature_heatmap.py`
+- **Patient-level prediction summaries**: `2.plot_summary_metrics.py`, `4.plot_predicted_class.py`
+- **Prediction–clinical scale correlations**: `3.plot_pred_clinical_corr.py`
+- **Audio visualization utilities**: `SI_1.plot_audio_visualization.py`
 
 ---
 
@@ -92,9 +92,8 @@ If scripts use file paths hard-coded at the top (common in plotting scripts), ed
 - Run OpenSMILE on audio → acoustic feature vector per clip
 
 2) **Train/evaluate models**
-- Use `Model/slstm.py` for the multimodal deep model (visual sLSTM + audio encoder + fusion classifier)
-- Use `Model/ml.py` for classical baselines on aggregated features (e.g., SVM / Naive Bayes / ExtraTrees, etc.)
-- Ensure **participant-level 5-fold CV** (all clips from the same participant stay in the same fold)
+- Use `Model/dl.py` and `Model/slstm.py` for the multimodal deep model (visual sLSTM + audio encoder + fusion classifier).
+- Ensure **participant-level 5-fold CV** (all clips from the same participant stay in the same fold).
 
 3) **Aggregate to patient level**
 - Average clip probabilities per patient to obtain a single “probability of comorbid RBD” score.
