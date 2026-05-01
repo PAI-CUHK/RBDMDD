@@ -2,7 +2,7 @@
 
 Code accompanying the study:
 
-**Multimodal AI offers potential for identifying digital biomarkers and predicting comorbid REM sleep behavior disorder in major depressive disorder**
+**Multimodal AI for predicting comorbid REM sleep behavior disorder in major depressive disorder**
 
 This repository contains model code and analysis/plotting utilities for a **smartphone video + audio** pipeline that predicts the probability of **comorbid REM sleep behavior disorder (RBD)** among patients with **major depressive disorder (MDD)**, and surfaces **interpretable facial and vocal digital biomarkers** (e.g., via SHAP).
 
